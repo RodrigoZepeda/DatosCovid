@@ -4,7 +4,7 @@ import datetime
 from datetime import date
 from daterange import *
 
-download_folder = "datasets"
+download_folder = '/media/rodrigo/COVID/datasets'
 
 if not os.path.exists(download_folder):
     os.makedirs(download_folder)
@@ -30,9 +30,9 @@ for fecha in daterange(start_date, end_date):
     if not os.path.isfile(os.path.join(download_folder, dname)):
 
         if anio == str(2020):
-            url   = base_url + "/" + anio + "/" + mes + "/" +  dname
-        else:
             url = base_url + "/" + mes + "/" + dname
+        else:
+            url   = base_url + "/" + anio + "/" + mes + "/" +  dname
 
         print('Descargando ' + fecha.strftime("%d/%m/%Y") + " de "  + url)
 
