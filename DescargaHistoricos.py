@@ -12,7 +12,7 @@ if not os.path.exists(download_folder):
 #Fecha inicial de datos
 #https://www.gob.mx/cms/uploads/attachment/file/604001/Datos_abiertos_hist_ricos_2020.pdf
 start_date = date(2020, 4, 12)
-end_date   = date.today() - datetime.timedelta(1)
+end_date   = date.today()
 
 #http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/04/datos_abiertos_covid19_12.04.2020.zip
 #http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/2022/02/datos_abiertos_covid19_22.02.2022.zip
