@@ -1,5 +1,7 @@
 datasets/
 .DS_Store
+dropbox_token.rds
+upload_osf.R
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

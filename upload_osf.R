@@ -1,36 +1,30 @@
 #! /usr/bin/Rscript
 rm(list = ls())
-library(osfr)
+library(rdrop2)
 library(magrittr)
 library(glue)
 library(stringr)
-setwd("/media/rodrigo/covid/datasets/")
+
+#Dropbox
+drop_auth(rdstoken = "dropbox_token.rds")
 
 #Get files
-zipdata <- list.files(pattern = ".*.zip", full.names = T)
+uploaded_files  <- drop_dir("COVID-OSF/Datos Abiertos COVID")
 
-#Get project
-covid_project <- osf_retrieve_node("https://osf.io/9nu2d/")
+downloaded_data <- list.files(path = "/media/rodrigo/covid/datasets/",
+                              pattern = ".*.zip", full.names = T)
 
-#List files
-osfiles <- covid_project %>%
-  osf_ls_files("Datos Abiertos COVID", n_max = Inf)
 
-#Get address
-osfiles_address <- covid_project %>%
-  osf_ls_files(pattern = "Datos Abiertos COVID") 
-
-for (fname in zipdata){
-  if (!(str_remove(fname,"\\./") %in% osfiles$name)){
+for (fname in downloaded_data){
+  if (!(basename(fname) %in% uploaded_files$name)){
     
-    message(glue("Uploading {fname}"))
+    message(glue("Uploading {str_remove_all(basename(fname),'datos_abiertos_covid19_|.zip')}"))
     
     #Upload file
-    covid_project %>%
-      osf_upload(path = fname, conflicts = "skip") %>% 
-      osf_mv(osfiles_address)
+    drop_upload(fname, path = "/COVID-OSF/Datos Abiertos COVID",
+                verbose = FALSE)
     
     message(glue("Success!"))
-  
+    
   }
 }
