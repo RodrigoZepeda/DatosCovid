@@ -1,4 +1,5 @@
 datasets/
+.Rhistory
 .DS_Store
 dropbox_token.rds
 upload_osf.R
