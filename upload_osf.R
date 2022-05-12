@@ -6,14 +6,19 @@ library(glue)
 library(stringr)
 
 #Dropbox
+#token <- drop_auth(cache = F)
+#saveRDS(token, file = "dropbox_token.rds")
 drop_auth(rdstoken = "dropbox_token.rds")
 
 #Get files
 uploaded_files  <- drop_dir("COVID-OSF/Datos Abiertos COVID")
 
+#Get files and upload newest to oldest
 downloaded_data <- list.files(path = "/media/rodrigo/covid/datasets/",
                               pattern = ".*.zip", full.names = T)
-
+details         <- file.info(downloaded_data)
+details         <- details[with(details, order(as.POSIXct(mtime), decreasing = T)), ]
+downloaded_data <- rownames(details)
 
 for (fname in downloaded_data){
   if (!(basename(fname) %in% uploaded_files$name)){
