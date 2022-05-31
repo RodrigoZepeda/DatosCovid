@@ -7,8 +7,8 @@ library(stringr)
 
 #Dropbox
 #token <- drop_auth(cache = F)
-#saveRDS(token, file = "dropbox_token.rds")
-drop_auth(rdstoken = "dropbox_token.rds")
+#saveRDS(token, file = "~/dropbox_token.rds")
+drop_auth(rdstoken = "~/dropbox_token.rds")
 
 #Get files
 uploaded_files  <- drop_dir("COVID-OSF/Datos Abiertos COVID")
