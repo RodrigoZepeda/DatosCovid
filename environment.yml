@@ -1,0 +1,10 @@
+name: DescargaDatosAbiertosCovid
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - seaborn
+  - pandas
+  - requests
+prefix: /home/rodrigo/miniconda3/envs/DescargaDatosAbiertosCovid

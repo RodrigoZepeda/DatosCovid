@@ -6,6 +6,8 @@ import filecmp
 from datetime import date
 from daterange import *
 import subprocess
+from urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 download_folder = '/media/rodrigo/covid/datasets'
 #download_folder = '/home/rodrigo/Desktop'
@@ -50,7 +52,7 @@ for fecha in daterange(start_date, end_date):
 
         # Descarga del archivo
         try:
-            req = requests.get(url)
+            req = requests.get(url, verify=False)
 
             if req.status_code == 404:
                 print("Datos no encontrados para " + fecha.strftime("%d/%m/%Y"))
@@ -76,7 +78,7 @@ files = sorted(os.listdir(download_folder), key=lambda fn: - os.path.getctime(os
 
 try:
     print("Buscando los más recientes...")
-    req = requests.get(latest_url)
+    req = requests.get(latest_url, verify=False)
 
     if req.status_code == 404:
         print("Datos más recientes no encontrados")
