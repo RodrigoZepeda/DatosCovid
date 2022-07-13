@@ -1,8 +1,6 @@
 # DescargaDatosAbiertosCovid
 
-## Actualización 28-Abril-2022
-
-> El día de ayer dejaron de actualizar las bases de datos de COVID-19. Para evitar que eventualmente quiten los vínculos a las bases éstas se encuentran ya publicadas con el siguiente DOI [10.17605/OSF.IO/9NU2D](https://osf.io/9nu2d/)
+> Si lo que buscas es un paquete de `R` que descargue los datos y facilite tu análisis checa [`covidmx`](https://rodrigozepeda.github.io/covidmx/)
 
 ## Objetivo 
 
@@ -26,7 +24,11 @@ el documento queda como:
 
 para actualización diaria a las 4am. 
 
+## Actualización 28-Abril-2022
+
+> El día de ayer dejaron de actualizar las bases de datos de COVID-19. Para evitar que eventualmente quiten los vínculos a las bases éstas se encuentran ya publicadas con el siguiente DOI [10.17605/OSF.IO/9NU2D](https://osf.io/9nu2d/)
+
+
 ## En desarrollo
 
-+ Formateo de las bases en SQL o MariaDB para su lectura.
 + Modelos de nowcasting. 

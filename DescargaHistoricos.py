@@ -105,4 +105,4 @@ else:
     print("Datos más recientes descargados")
 
 #To run make executable (chmod +777 upload_osf.R on command line)
-subprocess.call ("./upload_osf.R")
+subprocess.call("./upload_osf.R")
